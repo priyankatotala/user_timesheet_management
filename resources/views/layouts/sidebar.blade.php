@@ -28,7 +28,7 @@
     
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand col-md-4"  href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,14 +77,30 @@
             </div>
         </nav>
         
+    <div id="main" class="row">
+
+        <!-- sidebar content -->
+        <div id="sidebar" class="col-md-2">
+            @include('includes.sidebar')
+        </div>
+
+        <!-- main content -->
+        <div id="content" class="col-md-8">
+            @yield('content')
+        </div>
+
+    </div>
+  
   
 
-
-        <main class="py-4">
+        <!-- <main class="py-4">
+       
             <div class="container">
             @yield('content')
             </div>
-        </main>
+        </main> -->
     </div>
 </body>
 </html>
+
+
