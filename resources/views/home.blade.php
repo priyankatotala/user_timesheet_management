@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Hi bjbk {{ session('user') }} You are logged in!
                 </div>
             </div>
         </div>
