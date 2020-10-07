@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Hi dollydolly {{ session('user') }} You are logged in!
+                    Hi {{ Auth::user()->name }}! You are logged in!
                 </div>
             </div>
         </div>
