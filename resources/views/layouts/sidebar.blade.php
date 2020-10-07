@@ -80,8 +80,10 @@
     <div id="main" class="row">
 
         <!-- sidebar content -->
-        <div id="sidebar" class="col-md-2">
+        <div id="sidebar" class="col-md-2  ml-4 ">
+        
             @include('includes.sidebar')
+            
         </div>
 
         <!-- main content -->
