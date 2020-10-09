@@ -1,6 +1,13 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app') -->
+@extends('login')
 
 @section('content')
+
+  <div class="login-logo">
+    <a href="index2.html"><b>Softsed </b>SimpleAdminLTE</a>
+  </div>
+  <!-- /.login-logo -->
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,4 +77,7 @@
         </div>
     </div>
 </div>
+
+ <!-- /.login-box-body -->
+ 
 @endsection
