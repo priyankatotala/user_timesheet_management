@@ -4,7 +4,7 @@
 @section('content')
 
   <div class="login-logo">
-    <a href="index2.html"><b>Softsed </b>SimpleAdminLTE</a>
+    <a href="index2.html"><b>Product Manager</b></a>
   </div>
   <!-- /.login-logo -->
 

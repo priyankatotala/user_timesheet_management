@@ -1,108 +1,97 @@
-
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    
-  <!--  <script src="{{ asset('js/app.js') }}" defer></script>    -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-    <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet">  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-   
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Product Manager | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/fonts/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/fonts/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css" >
+
+  <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 </head>
-<body>
-    <div id="app">
-    
-  
-    
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand col-md-4"  href="{{ url('/home') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="hold-transition skin-yellow-light sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
 
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>PM</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b></b>Product Management </span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto"></ul>
-
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-                        @else
-                        
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                            <li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('login') }}" 
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+         
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="/dist/img/avatar2.png" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+            </a>
+            <ul class="dropdown-menu" style="min-width: 25px; width: 25px ">
+            <div class="pull-right">
+                  <a href="{{ route('login') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Sign out</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                  </form>
                 </div>
-            </div>
-        </nav>
-        
-    <div id="main" class="row">
-
-        <!-- sidebar content -->
-        <div id="sidebar" class="col-md-2  ml-4 ">
-        
-            @include('includes.sidebar')
             
-        </div>
+             
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-        <!-- main content -->
-        <div id="content" class="col-md-8">
-            @yield('content')
-        </div>
-
-    </div>
   
-  
 
-        <!-- <main class="py-4">
-       
-            <div class="container">
-            @yield('content')
-            </div>
-        </main> -->
-    </div>
+  @extends('includes.sidebar')
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    @yield('content')
+  </div>
+  <!-- /.content-wrapper -->
+  @extends('includes.footer')
+  
+</div>
+<!-- ./wrapper -->
+
+
 </body>
 </html>
-
-
